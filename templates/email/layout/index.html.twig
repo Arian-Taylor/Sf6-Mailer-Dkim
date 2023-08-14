@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>
+        {% block title %} ---Title--- {% endblock %}
+    </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index,follow">
+    <meta name="Description" content="---Description---">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,100,200,300,500,600,800,700,900" rel="stylesheet" type="text/css">
+    <style type="text/css">
+    body {
+        font-family: Montserrat, sans-serif !important;
+        color: #6E6E6E;
+        font-size: 14px;
+    }
+
+    p {
+        margin: 0 0 8px;
+    }
+
+    img {
+        width: 100%;
+    }
+    </style>
+</head>
+
+<body style="margin: 0; padding: 0 15px">
+    <div style="width: 100%; max-width: 768px; margin: auto; font-family: Montserrat, sans-serif; font-size: 14px; font-weight: 400; color: #6E6E6E;">
+        <table cellspacing="0" cellpadding="0" align="left" valign="middle" style="background: #fff;">
+            <tr>
+                <td>
+                    {% include 'email/layout/header.html.twig' %}
+                    {% block body %}{% endblock %}
+                    {% include 'email/layout/footer.html.twig' %}
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>

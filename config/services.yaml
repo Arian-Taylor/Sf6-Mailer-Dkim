@@ -1,0 +1,45 @@
+# This file is the entry point to configure your own services.
+# Files in the packages/ subdirectory configure your dependencies.
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
+parameters:
+    ###> PATH VM ###
+    PROJECT_DIR: '%kernel.project_dir%'
+    ###> PATH VM ###
+
+    ###> APP VM ###
+    APP_URL: '%env(APP_URL)%'
+    ###< APP VM ###
+
+    ###> DKIM VM ###
+    SYS_DKIM_SIGNEE_ACTIVE: '%env(SYS_DKIM_SIGNEE_ACTIVE)%'
+    SYS_DKIM_SIGNEE_DOMAIN: '%env(SYS_DKIM_SIGNEE_DOMAIN)%'
+    SYS_DKIM_SIGNEE_SELECTOR: '%env(SYS_DKIM_SIGNEE_SELECTOR)%'
+    SYS_DKIM_FILE_NAME: '%env(SYS_DKIM_FILE_NAME)%'
+    SYS_DKIM_PATH_ABSOLUTE: '%env(SYS_DKIM_PATH_ABSOLUTE)%'
+    ###< DKIM VM ###
+
+    ###> MAILER VM ###
+    MAILER_DSN: '%env(MAILER_DSN)%'
+    MAILER_FROM: '%env(MAILER_FROM)%'
+    MAILER_NAME: '%env(MAILER_NAME)%'
+    ###< MAILER VM ###
+
+services:
+    # default configuration for services in *this* file
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+    # makes classes in src/ available to be used as services
+    # this creates a service per class whose id is the fully-qualified class name
+    App\:
+        resource: '../src/'
+        exclude:
+            - '../src/DependencyInjection/'
+            - '../src/Entity/'
+            - '../src/Kernel.php'
+
+    # add more service definitions when explicit configuration is needed
+    # please note that last definitions always *replace* previous ones

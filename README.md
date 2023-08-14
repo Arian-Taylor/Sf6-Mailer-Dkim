@@ -20,9 +20,7 @@ Mise en application d'un projet Symfony6 avec Mailer et la signature DKIM
 	- `MAILER_NAME` : nom de l'expediteur
 	- `APP_URL` : url du site
 
-- Generer votre clé privatekey.pem
-	- `cd Path_to_your\Sf6-Mailer-Dkim\private\dkim\`
-	- `openssl genrsa -out privatekey.pem`
+- Generer et copier la clé privé dkim du projet dans `Sf6-Mailer-Dkim\private\dkim\` si vous avez activer la signature DKIM `SYS_DKIM_SIGNEE_ACTIVE="on"`
 
 - Starting the server :
 	- `symfony serve --port=8000`
